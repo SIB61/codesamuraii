@@ -1,0 +1,74 @@
+<div class="w-full h-full flex flex-col  justify-start items-center">
+<div  class="relative overflow-hidden w-full h-full bg-base-300 ">
+        <label class="btn btn-circle top-4 right-4 absolute" (click)="closeDetails()">x</label>
+        <label for="my-modal-3" class="btn btn-circle bottom-4 right-4 absolute">?</label>
+<div class=" h-full flex flex-col justify-start items-center p-3 overflow-scroll">
+ <div class="font-semibold text-xl my-4">{{project.name}}</div>
+ <!-- <div class="divider"></div> -->
+ <div class="mb-4"><span class="font-semibold">Description: </span>{{project.goal}}</div>
+<div class="mb-4"><span class="font-semibold">Executive agency : </span> <span >{{project.exec}},</span></div>
+
+<div class="stats shadow">
+  
+  <div class="stat place-items-center">
+    <div class="stat-title">Completion</div>
+          <div class="radial-progress bg-primary text-primary-content border-4 border-primary" style="--value:{{project.completion}};">{{project.completion}}%</div>
+          <!-- <div class="stat-desc">From {{project.start_date|date}} 1st till Now </div> -->
+  </div>
+  
+  <div class="stat place-items-center">
+    <div class="stat-title">Budget</div>
+          <div class="stat-value text-secondary">{{project.cost}} cr</div>
+          <!-- <div class="stat-desc text-secondary">↗︎  (2%)</div> -->
+  </div>
+  
+  <div class="stat place-items-center">
+    <div class="stat-title">Actual cost</div>
+          <div class="stat-value">{{project.actual_cost}}</div>
+          <!-- <div class="stat-desc">↘︎ ({{ project.actual_cost}}%)</div> -->
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+</div>
+ </div>
+</div>
+
+<!-- The button to open modal -->
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 class="text-lg font-bold">Give your feedback</h3>
+    <div class="flex w-full items-center justify-center p-4">
+      
+<div class="rating">
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+</div>
+
+    </div>
+  <input type="text" [(ngModel)]="feedback" placeholder="feedback" class="input input-bordered w-full">
+      <button class="btn btn-primary w-full my-4" (click)="postFeedback()" >post feedback</button>
+  </div>
+</div>
+
+<div class="toast" *ngIf="isPosted">
+  <div class="alert alert-success">
+    <div>
+      <span>feedback posted</span>
+    </div>
+  </div>
+</div>

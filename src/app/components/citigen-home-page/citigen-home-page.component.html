@@ -1,0 +1,11 @@
+<div class="w-full h-full flex flex-col">
+<div class="w-full h-16 flex justify-between items-center px-4"><span>Code Samurai</span><span class="btn btn-ghost" (click)="logout()">logout</span></div>
+<div class="flex w-full h-full">
+<app-project-visual class="w-1/2" (close)="isOpenVisual=false" [project]="selectedProject" *ngIf="isOpenVisual"></app-project-visual>
+<app-map class="flex-1" (select)="mapSelected($event)" [projects]="projects$|async"></app-map>
+</div>
+
+
+
+</div>
+

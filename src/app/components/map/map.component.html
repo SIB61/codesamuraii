@@ -1,0 +1,22 @@
+<google-map height="100%"
+            width="100%"
+            *ngIf="center"
+            [center]="center">
+
+      <ng-container
+              *ngFor="let project of projects; let i = index"
+      >
+ <map-marker #marker="mapMarker"
+              [position]="getPosition(project)"
+              [title]="project.name"
+              (mapClick)="openInfoWindow(marker,i)"></map-marker>
+ 
+  <map-info-window>
+          <div class="flex flex-col justify-center items-center">
+           <div class="text-lg "> {{project.name}} </div>
+           <div class=""> {{project.exec}} </div>
+            <button class="btn btn-link" (click)="showDetails(project)">see details</button>
+          </div>
+  </map-info-window>
+</ng-container>
+</google-map>

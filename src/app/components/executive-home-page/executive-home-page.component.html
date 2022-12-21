@@ -1,0 +1,27 @@
+<div class="flex flex-col">
+  <div class="w-full flex justify-between items-center h-16 bg-base-300">
+    <div class="text-xl font-semibold">Code samurai./ {{user.name}}</div>  
+    <div>
+       <button class="btn" routerLink="proposals"  [ngClass]="selected==1 ? 'btn-active':'btn-ghost'" (click)="selected=1">Proposals</button>
+       <button class="btn" routerLink="projects" [ngClass]="selected==2 ? 'btn-active':'btn-ghost'" (click)="selected=2" >On going</button>
+       <button class="btn btn-ghost"  (click)="logout()"   >log out</button>
+    </div>
+  </div>
+  <div class="w-full h-full">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+  <label for="my-modal-2" class="btn btn-primary z-50 fixed bottom-4 right-4">+ add proposal</label>
+
+
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-2" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="my-modal-2" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 class="text-lg font-bold">Congratulations random Internet user!</h3>
+    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+  </div>
+</div>

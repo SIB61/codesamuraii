@@ -1,0 +1,27 @@
+<div class="overflow-x-scroll">
+  <table class="table w-full">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>location</th>
+        <th>cost</th>
+        <th>timespan</th>
+        <th>goal</th>
+        <th>proposal date</th>
+        <th>action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      <tr *ngFor="let proposal of (proposals$|async)" >
+        <th>{{proposal.name}}</th>
+        <td>{{proposal.location}}</td>
+        <td>{{proposal.cost}}</td>
+        <td>{{proposal.timespan}}</td>
+        <td>{{proposal.goal}}</td>
+        <td>{{proposal.proposal_date | date}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

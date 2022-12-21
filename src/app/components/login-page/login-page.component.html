@@ -1,0 +1,12 @@
+<div class="w-full h-full flex justify-center items-center flex-col">
+  <div class="mb-4">Login at project Code Samurai. 2022</div>
+  <form action="" [formGroup]="form" class="flex flex-col w-96 card bg-base-200 p-4">
+    <input type="text" formControlName="email" placeholder="email" class="input input-bordered w-full mb-4">
+    <input type="password" formControlName="password" placeholder="password" class="input input-bordered w-full mb-4">
+    <button [ngClass]="form.invalid?'btn-disabled':'btn-primary'" (click)="login()" class="btn mb-4" >login</button>
+  </form>
+<div class="flex justify-center items-center">
+<div>Do not have any account?</div>
+<button class="btn btn-link" routerLink="/register"  >register</button>
+</div>
+</div>

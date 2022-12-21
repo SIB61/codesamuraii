@@ -1,0 +1,40 @@
+<div class="w-full h-full flex justify-center items-center flex-col">
+  <div class="mb-4">
+    Register at project Code Samurai. 2022 as
+    <select name="" #select (change)="selectUserType(select.value)" id="" class="select select-bordered">
+      <option value="C" selected>citizen</option>
+      <option value="A">agency</option>
+    </select>
+  </div>
+
+
+    
+  <form action="" *ngIf="userType=='C'" [formGroup]="citizenForm" class="flex flex-col w-96 card bg-base-200 p-4">
+    <input type="text" formControlName="email" placeholder="email" class="input input-bordered w-full mb-4" />
+    <input type="text" formControlName="name" placeholder="name" class="input input-bordered w-full mb-4">
+    <input type="password" formControlName="password" placeholder="password" class="input input-bordered w-full mb-4" />
+    <input type="password" formControlName="confirmPassword" placeholder="confirm password" class="input input-bordered w-full mb-4" />
+    <button (click)="registerCitizen()" [ngClass]="citizenForm.invalid?'btn-disabled':'btn-primary'" class="btn mb-4">register</button>
+  </form>
+
+
+  <form action="" *ngIf="userType=='A'" [formGroup]="agencyForm" class="flex flex-col w-96 card bg-base-200 p-4">
+    <input formControlName="email" type="text" placeholder="email" class="input input-bordered w-full mb-4" />
+    <input formControlName="name" type="text" placeholder="name" class="input input-bordered w-full mb-4">
+    <input formControlName="code" type="text" placeholder="code" class="input input-bordered w-full mb-4">
+    <input formControlName="description" type="description" placeholder="description" class="input input-bordered w-full mb-4" />
+    <select #code (change)="changeCode(code.value)" class="select select-bordered w-full" name="" id="">
+      <option value="EXEC">executing agency</option>
+      <option value="APPROV">approval agency</option>
+    </select>
+    <input formControlName="password" type="password" placeholder="password" class="input input-bordered w-full mb-4" />
+    <input formControlName="confirmPassword" type="password" placeholder="confirm password" class="input input-bordered w-full mb-4" />
+    <button [ngClass]="agencyForm.invalid?'btn-disabled':'btn-primary'" class="btn  mb-4">register</button>
+  </form>
+
+
+  <div class="flex justify-center items-center">
+    <div>Allready have an account?</div>
+    <button  class="btn btn-link" routerLink="/login">login</button>
+  </div>
+</div>
