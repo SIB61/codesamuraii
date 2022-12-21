@@ -70,10 +70,7 @@ const routes: Routes = [
 ];
 
 function homeRedirect(){
-  const usrstr = localStorage.getItem("user")
-  let a = 'CITIZEN'
-  if(usrstr)
-  a = JSON.parse(a).role
+  const a = JSON.parse(localStorage.getItem("user")!).role
   if(a=="EXEC") return "executive-agency"
   else if(a=="APPROV") return "approval-agency"
   else if(a=="ADMIN") return "admin"

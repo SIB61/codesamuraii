@@ -7,7 +7,7 @@
               *ngFor="let project of projects; let i = index"
       >
  <map-marker #marker="mapMarker"
-              [position]="getPosition(project)"
+      [position]="{lat:project.latitude,lng:project.longitude}"
               [title]="project.name"
               (mapClick)="openInfoWindow(marker,i)"></map-marker>
  
