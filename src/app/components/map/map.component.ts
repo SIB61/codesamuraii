@@ -31,12 +31,11 @@ markerPositions: google.maps.LatLngLiteral[] = [];
 zoom = 4;
 
 openInfoWindow(marker: MapMarker,i:number) {
-    this.infoWindows[i].open(marker)
-    // this.infoWindows.forEach((window:any,idx:any)=>{
-    //   if(idx==i) window.open(marker)
-    //   
-    // });
-  }
+    // this.infoWindows[i].open(marker)
+    this.infoWindows.forEach((window:any,idx:any)=>{
+      if(idx==i) window.open(marker)
+    });
+}
 
   showDetails(project:Project){
     this.select.emit(project)

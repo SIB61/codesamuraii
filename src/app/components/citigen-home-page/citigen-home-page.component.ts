@@ -3,6 +3,7 @@ import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/
 import { FormGroup } from '@angular/forms';
 import { GoogleMap, MapInfoWindow } from '@angular/google-maps';
 import { Router } from '@angular/router';
+import { take } from 'rxjs';
 import { base_url } from 'src/app/constants';
 import { Project } from 'src/app/models/models';
 @Component({
@@ -16,7 +17,7 @@ export class CitigenHomePageComponent implements OnInit{
   isOpenVisual = false;
 
   constructor(private http:HttpClient,private router: Router){}
-  projects$ = this.http.get<Project[]>(base_url+"Project/citizen")
+  projects$ = this.http.get<Project[]>(base_url+"Project/citizen").pipe(take(1))
   ngOnInit(): void {
   }
 logout(){
